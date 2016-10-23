@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import Cell from '../Cell/Cell'
 
 export default class Grid extends Component {
 	static propTypes = {
@@ -17,9 +18,29 @@ export default class Grid extends Component {
 
 	render() {
 		const { roomDimensions } = this.state
+		const xLength = roomDimensions[0]
+		const yLength = roomDimensions[0]
+		const rowContainer = []
+		const grid = []
+
+		for (let i = 0; i < xLength; i += 1) {
+			rowContainer.push(<Cell />)
+		}
+
+		for (let i = 0; i < yLength; i += 1) {
+			grid.push(rowContainer)
+		}
 
 		return (
-			<div>Cell</div>
+			<div>
+				{
+					grid.map(row => (
+						row.map(element => (
+							element
+						))
+					))
+				}
+			</div>
 		)
 	}
 }

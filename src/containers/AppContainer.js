@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import fileUploader from '../utils/fileUploader/fileUploader'
 import inputProcessor from '../utils/inputProcessor/inputProcessor'
 
+import Grid from '../components/Grid/Grid'
+
 export default class AppContainer extends Component {
 	state = {
 		processedInputs: {}
@@ -20,9 +22,13 @@ export default class AppContainer extends Component {
 	}
 
 	render() {
+		const { processedInputs } = this.state
+		const { roomDimensions } = processedInputs
+
 		return (
 			<div>
 				<input type="file" ref={input => (this.fileInput = input)} />
+				<Grid roomDimensions={roomDimensions} />
 			</div>
 		)
 	}

@@ -28,18 +28,19 @@ export const dirtPatchInputProcessor = inputs => {
 	return formattedInputs
 }
 
+const parsedArrayToInts = array => (
+	array.map(element => parseInt(element, 10))
+)
+
 export default input => {
 	if (typeof input !== 'string') {
 		throw new Error('The input type must be a string')
 	}
 
-	const formattedInput = input.trim().split(/\s+/)
-	const lastInput = formattedInput.pop()
+	const formattedInputs = input.trim().split(/\s+/)
+	const lastInput = formattedInputs.pop()
 	const instructions = lastInput.split('')
-	const inputsParsedToInts = formattedInput.map(input => {
-		return parseInt(input, 10)
-	})
-
+	const inputsParsedToInts = parsedArrayToInts(formattedInputs)
 	const roomDimensions = inputsParsedToInts.slice(0, 2)
 	const hooverPosition = inputsParsedToInts.slice(2, 4)
 	const remainingElements = inputsParsedToInts.slice(4)
