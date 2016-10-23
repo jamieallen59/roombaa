@@ -19,7 +19,7 @@ export const dirtPatchInputProcessor = inputs => {
 
 			return formattedInputs.push(newArray)
 		}
-		// minues one because of zero-index
+		// minus one because of zero-index
 		const targetIndex = formattedInputs.length - 1
 
 		return formattedInputs[targetIndex].push(input)
@@ -39,12 +39,12 @@ export default input => {
 	const roomDimensions = formattedInput.slice(0, 2)
 	const hooverPosition = formattedInput.slice(2, 4)
 	const remainingElements = formattedInput.slice(4)
-	const dirtPatches = dirtPatchInputProcessor(remainingElements)
+	const dirtyPatches = dirtPatchInputProcessor(remainingElements)
 
 	return {
 		roomDimensions,
 		hooverPosition,
-		dirtPatches,
+		dirtyPatches,
 		instructions
 	}
 }

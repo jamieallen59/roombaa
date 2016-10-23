@@ -17,7 +17,7 @@ describe('utils/inputProcessor:', () => {
 			const expectedValues = {
 				roomDimensions: [ '5', '5' ],
 				hooverPosition: [ '1', '2' ],
-				dirtPatches: [
+				dirtyPatches: [
 					[ '1', '0' ],
 					[ '2', '2' ],
 					[ '2', '3' ]
