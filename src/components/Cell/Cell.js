@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
+export const className = 'cell'
+
 export default class Cell extends Component {
 	static propTypes = {
 		isDirty: PropTypes.bool
@@ -15,8 +17,10 @@ export default class Cell extends Component {
 	}
 
 	render() {
-		return (
-			<div>Cell</div>
-		)
+		const { isDirty } = this.state
+
+		return isDirty
+			? <div className={`${className}__dirty`}>Dirty cell</div>
+			: <div className={className}>Cell</div>
 	}
 }
