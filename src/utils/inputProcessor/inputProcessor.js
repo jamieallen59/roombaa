@@ -3,6 +3,12 @@
 export const isMultipleOfTwo = num => num % 2 === 0
 
 export const dirtPatchInputProcessor = inputs => {
+	const isInputValid = isMultipleOfTwo(inputs.length)
+
+	if (!isInputValid) {
+		throw new Error('Each dirt patch must have an x and a y coordinate')
+	}
+
 	const formattedInputs = []
 
 	inputs.map((input, index) => {

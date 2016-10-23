@@ -53,5 +53,13 @@ describe('utils/inputProcessor:', () => {
 
 			expect(result).to.deep.equal(expectedResult)
 		})
+
+		it('Should only accept an array with an even number of elements', () => {
+			const inputs = [ '1', '0', '2', '2', '2' ]
+
+			expect(() => dirtPatchInputProcessor(inputs)).to.throw(
+				'Each dirt patch must have an x and a y coordinate'
+			)
+		})
 	})
 })
