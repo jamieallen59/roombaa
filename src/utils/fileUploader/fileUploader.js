@@ -1,6 +1,9 @@
-export default event => (
+export default (event = {}) => (
 	new Promise((resolve, reject) => {
-		if (event.target.files.length) {
+		const { target = {} } = event
+		const { files = [] } = target
+
+		if (files.length) {
 			const fr = new window.FileReader()
 
 			fr.onload = file => {
