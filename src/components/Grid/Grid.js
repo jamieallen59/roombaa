@@ -16,6 +16,12 @@ export default class Grid extends Component {
 		}
 	}
 
+	componentWillReceiveProps(newProps) {
+		const { roomDimensions } = newProps
+
+		this.setState({ roomDimensions })
+	}
+
 	render() {
 		const { roomDimensions } = this.state
 		const xLength = roomDimensions[0]
