@@ -13,6 +13,11 @@ export default {
 	output: {
 		path: './dist'
 	},
+	devServer: {
+		stats: {
+			chunks: false
+		}
+	},
 	module: {
 		loaders: [ {
 			test: /\.js$/,
