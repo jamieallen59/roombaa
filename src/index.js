@@ -10,5 +10,5 @@ const AppContainer = () => (
 
 render(
 	<AppContainer />,
-	document.getElementById('root')
+	document.getElementById('root') // eslint-disable-line no-undef
 )

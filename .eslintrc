@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": [ "error", "tab" ],
+    "comma-dangle": [ 2, "never" ],
+    "react/jsx-indent": [ 2, "tab" ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "array-bracket-spacing": [ 2, "always" ],
+    "arrow-parens": ["error", "as-needed"],
+    "semi": ["error", "never"],
+    "no-tabs": "off",
+  }
+}
