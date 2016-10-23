@@ -1,8 +1,8 @@
 
 
-const isMultipleOfTwo = num => num % 2 === 0
+export const isMultipleOfTwo = num => num % 2 === 0
 
-const dirtPatchInputs = inputs => {
+export const dirtPatchInputProcessor = inputs => {
 	const formattedInputs = []
 
 	inputs.map((input, index) => {
@@ -33,7 +33,7 @@ export default input => {
 	const roomDimensions = formattedInput.slice(0, 2)
 	const hooverPosition = formattedInput.slice(2, 4)
 	const remainingElements = formattedInput.slice(4)
-	const dirtPatches = dirtPatchInputs(remainingElements)
+	const dirtPatches = dirtPatchInputProcessor(remainingElements)
 
 	return {
 		roomDimensions,
