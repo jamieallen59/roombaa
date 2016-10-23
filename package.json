@@ -1,7 +1,11 @@
 {
-  "name": "Roomba challenge",
+  "name": "Roomba-challenge",
   "version": "0.0.1",
   "main": "index.js",
   "author": "Jamie Allen",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.3.2",
+    "webpack": "^1.13.2"
+  }
 }
