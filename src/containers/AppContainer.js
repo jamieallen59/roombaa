@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import fileUploader from '../utils/fileUploader'
+import fileUploader from '../utils/fileUploader/fileUploader'
 
 export default class AppContainer extends Component {
 	state = {
