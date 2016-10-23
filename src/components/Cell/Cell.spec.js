@@ -19,4 +19,15 @@ describe('components/Cell:', () => {
 
 		expect(isDirty).to.be.false
 	})
+
+	context('When passed a prop to signify the cell being dirty', () => {
+		it('Should be dirty', () => {
+			component = shallow(<Cell isDirty />)
+
+			const componentState = component.state()
+			const isDirty = componentState.isDirty
+
+			expect(isDirty).to.be.true
+		})
+	})
 })
