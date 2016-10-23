@@ -2,10 +2,10 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 	title: 'Roomba Challenge',
-    hash: true,
-    template: './index.html',
-    filename: 'index.html',
-    inject: 'body'
+	hash: true,
+	template: './index.html',
+	filename: 'index.html',
+	inject: 'body'
 })
 
 export default {
@@ -13,6 +13,7 @@ export default {
 	output: {
 		path: './dist'
 	},
+	devtool: 'inline-source-map',
 	devServer: {
 		stats: {
 			chunks: false

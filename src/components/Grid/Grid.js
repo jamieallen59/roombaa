@@ -9,7 +9,7 @@ export default class Grid extends Component {
 	constructor(props) {
 		super(props)
 		// Defaults to a grid of 5 x 5 cells
-		const { roomDimensions = [ 5, 5 ] } = props
+		const { roomDimensions = [] } = props
 
 		this.state = {
 			roomDimensions
