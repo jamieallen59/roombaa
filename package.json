@@ -5,11 +5,14 @@
   "author": "Jamie Allen",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+	"test": "mocha --compilers js:babel-core/register \"src/**/*.spec.js\"",
+	"test:watch": "npm run test -- --watch"
   },
   "dependencies": {
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+	"chai": "^3.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
@@ -25,6 +28,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "html-webpack-plugin": "^2.24.0",
+    "mocha": "^3.1.2",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   }
