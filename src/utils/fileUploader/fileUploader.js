@@ -11,7 +11,7 @@ export default (event = {}) => (
 
 				resolve(result)
 			}
-			fr.readAsText(event.target.files[0])
+			fr.readAsText(files[0])
 		} else {
 			reject('There was an error uploading your file')
 		}
