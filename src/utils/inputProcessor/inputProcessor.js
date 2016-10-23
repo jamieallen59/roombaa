@@ -36,9 +36,13 @@ export default input => {
 	const formattedInput = input.trim().split(/\s+/)
 	const lastInput = formattedInput.pop()
 	const instructions = lastInput.split('')
-	const roomDimensions = formattedInput.slice(0, 2)
-	const hooverPosition = formattedInput.slice(2, 4)
-	const remainingElements = formattedInput.slice(4)
+	const inputsParsedToInts = formattedInput.map(input => {
+		return parseInt(input, 10)
+	})
+
+	const roomDimensions = inputsParsedToInts.slice(0, 2)
+	const hooverPosition = inputsParsedToInts.slice(2, 4)
+	const remainingElements = inputsParsedToInts.slice(4)
 	const dirtyPatches = dirtPatchInputProcessor(remainingElements)
 
 	return {

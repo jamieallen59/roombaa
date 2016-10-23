@@ -8,12 +8,11 @@ export default class Cell extends Component {
 	constructor(props) {
 		super(props)
 		const { isDirty = false } = props
-		console.log(isDirty)
+
 		this.state = {
 			isDirty
 		}
 	}
-
 
 	render() {
 		return (

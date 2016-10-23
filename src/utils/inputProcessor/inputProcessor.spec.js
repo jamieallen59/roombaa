@@ -15,12 +15,12 @@ describe('utils/inputProcessor:', () => {
 		it('Should return an object of values', () => {
 			const inputValues = '5 5 1 2 1 0 2 2 2 3 NNESEESWNWW'
 			const expectedValues = {
-				roomDimensions: [ '5', '5' ],
-				hooverPosition: [ '1', '2' ],
+				roomDimensions: [ 5, 5 ],
+				hooverPosition: [ 1, 2 ],
 				dirtyPatches: [
-					[ '1', '0' ],
-					[ '2', '2' ],
-					[ '2', '3' ]
+					[ 1, 0 ],
+					[ 2, 2 ],
+					[ 2, 3 ]
 				],
 				instructions: [
 					'N', 'N', 'E', 'S',
