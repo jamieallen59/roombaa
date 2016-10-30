@@ -27,7 +27,11 @@ describe('components/Grid:', () => {
 		expect(cellComponents.length).to.equal(expectedNumber)
 	})
 
-	it('Should instantiate with a Hoover', () => {
+	it('Should instantiate with a Hoover, if a position is given', () => {
+		const hooverPosition = [ 1, 2 ]
+		component = mount(
+			<Grid roomDimensions={roomDimensions} hooverPosition={hooverPosition} />
+		)
 		const hooverComponent = component.find(Hoover)
 
 		expect(hooverComponent.length).to.equal(1)

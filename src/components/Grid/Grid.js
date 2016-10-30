@@ -25,7 +25,7 @@ export default class Grid extends Component {
 	}
 
 	render() {
-		const { roomDimensions } = this.state
+		const { roomDimensions, hooverPosition } = this.state
 		const xLength = roomDimensions[0]
 		const yLength = roomDimensions[1]
 		const rowContainer = []
@@ -41,6 +41,8 @@ export default class Grid extends Component {
 			grid.push(rowContainer)
 		}
 
+		const hasHooverPosition = hooverPosition.length
+
 		return (
 			<div>
 				{
@@ -48,7 +50,9 @@ export default class Grid extends Component {
 						row.map(element => element)
 					))
 				}
-				<Hoover />
+				{
+					hasHooverPosition && <Hoover />
+				}
 			</div>
 		)
 	}

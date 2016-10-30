@@ -5,7 +5,9 @@ export const className = 'hoover'
 export default class Hoover extends Component {
 	render() {
 		return (
-			<div className={className}>Hoover!</div>
+			<div className={className}>
+				Hoover!
+			</div>
 		)
 	}
 }
