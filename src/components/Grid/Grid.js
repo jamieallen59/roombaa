@@ -40,7 +40,7 @@ export default class Grid extends Component {
 	}
 
 	getHooverPath = () => {
-		const { hooverPosition, instructions } = this.state
+		const { hooverPosition, instructions, roomDimensions } = this.state
 		const hooverPath = [ hooverPosition ]
 
 		instructions.forEach(instruction => {
@@ -48,33 +48,48 @@ export default class Grid extends Component {
 			const lastInstruction = hooverPath[lastInstructionPosition]
 			const xCoord = lastInstruction[0]
 			const yCoord = lastInstruction[1]
+			const xLimit = roomDimensions[0]
+			const yLimit = roomDimensions[1]
+			let currentSquare
 
 			switch (instruction) {
 			case 'N': {
-				const currentSquare = [
-					xCoord, yCoord + 1
-				]
+				if (yCoord === yLimit) {
+					currentSquare = lastInstruction
+				} else {
+					currentSquare = [ xCoord, yCoord + 1 ]
+				}
+
 				hooverPath.push(currentSquare)
 				break
 			}
 			case 'S': {
-				const currentSquare = [
-					xCoord, yCoord - 1
-				]
+				if (yCoord === 0) {
+					currentSquare = lastInstruction
+				} else {
+					currentSquare = [ xCoord, yCoord - 1 ]
+				}
+
 				hooverPath.push(currentSquare)
 				break
 			}
 			case 'E': {
-				const currentSquare = [
-					xCoord - 1, yCoord
-				]
+				if (xCoord === 0) {
+					currentSquare = lastInstruction
+				} else {
+					currentSquare = [ xCoord - 1, yCoord ]
+				}
+
 				hooverPath.push(currentSquare)
 				break
 			}
 			case 'W': {
-				const currentSquare = [
-					xCoord + 1, yCoord
-				]
+				if (xCoord === xLimit) {
+					currentSquare = lastInstruction
+				} else {
+					currentSquare = [ xCoord + 1, yCoord ]
+				}
+
 				hooverPath.push(currentSquare)
 				break
 			}

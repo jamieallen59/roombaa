@@ -3,11 +3,11 @@
 import React from 'react'
 import { expect } from 'chai'
 import { mount } from 'enzyme'
+import testdom from 'testdom'
 import Grid from './Grid'
 import Cell from '../Cell/Cell'
 import Hoover from '../Hoover/Hoover'
 
-import testdom from 'testdom'
 testdom('<html><body></body></html>')
 
 describe('components/Grid:', () => {
@@ -48,7 +48,7 @@ describe('components/Grid:', () => {
 	})
 
 	it('Should know where the dirty patches are', () => {
-		const dirtyPatches = [[ 1, 2 ], [ 3, 5 ]]
+		const dirtyPatches = [ [ 1, 2 ], [ 3, 5 ] ]
 		component = mount(
 			<Grid dirtyPatches={dirtyPatches} />
 		)
@@ -58,7 +58,7 @@ describe('components/Grid:', () => {
 	})
 
 	it('Should know what the instructions are for the hoover', () => {
-		const instructions = ['N', 'E', 'W', 'N', 'S', 'E']
+		const instructions = [ 'N', 'E', 'W', 'N', 'S', 'E' ]
 		component = mount(
 			<Grid instructions={instructions} />
 		)
@@ -81,6 +81,27 @@ describe('components/Grid:', () => {
 		const expectedResults = [
 			[ 1, 2 ], [ 1, 3 ], [ 0, 3 ], [ 0, 4 ],
 			[ 1, 4 ], [ 1, 3 ]
+		]
+		const componentState = component.state()
+
+		expect(componentState.hooverPath).to.deep.equal(expectedResults)
+	})
+
+	it('Should take the constraints of the room into account', () => {
+		roomDimensions = [ 3, 3 ]
+		const hooverPosition = [ 1, 2 ]
+		const instructions = [ 'N', 'E', 'E', 'N', 'S' ]
+		component = mount(
+			<Grid
+				instructions={instructions}
+				hooverPosition={hooverPosition}
+				roomDimensions={roomDimensions}
+			/>
+		)
+		component.instance().getHooverPath()
+		const expectedResults = [
+			[ 1, 2 ], [ 1, 3 ], [ 0, 3 ], [ 0, 3 ],
+			[ 0, 3 ], [ 0, 2 ]
 		]
 		const componentState = component.state()
 
