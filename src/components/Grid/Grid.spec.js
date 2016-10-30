@@ -30,20 +30,40 @@ describe('components/Grid:', () => {
 	it('Should instantiate with a Hoover, if a position is given', () => {
 		const hooverPosition = [ 1, 2 ]
 		component = mount(
-			<Grid roomDimensions={roomDimensions} hooverPosition={hooverPosition} />
+			<Grid hooverPosition={hooverPosition} />
 		)
 		const hooverComponent = component.find(Hoover)
 
 		expect(hooverComponent.length).to.equal(1)
 	})
 
-	it('The Grid should know the hoovers initial position', () => {
+	it('The Grid should know the Hoovers initial position', () => {
 		const hooverPosition = [ 1, 2 ]
 		component = mount(
-			<Grid roomDimensions={roomDimensions} hooverPosition={hooverPosition} />
+			<Grid hooverPosition={hooverPosition} />
 		)
 		const componentState = component.state()
 
 		expect(componentState.hooverPosition).to.equal(hooverPosition)
+	})
+
+	it('The Grid should know where the dirty patches are', () => {
+		const dirtyPatches = [[ 1, 2 ], [ 3, 5 ]]
+		component = mount(
+			<Grid dirtyPatches={dirtyPatches} />
+		)
+		const componentState = component.state()
+
+		expect(componentState.dirtyPatches).to.equal(dirtyPatches)
+	})
+
+	it('The Grid should know what the instructions are for the hoover', () => {
+		const instructions = ['N', 'E', 'W', 'N', 'S', 'E']
+		component = mount(
+			<Grid instructions={instructions} />
+		)
+		const componentState = component.state()
+
+		expect(componentState.instructions).to.equal(instructions)
 	})
 })

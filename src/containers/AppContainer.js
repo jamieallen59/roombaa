@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent-props */
+
 import React, { Component } from 'react'
 
 import fileUploader from '../utils/fileUploader/fileUploader'
@@ -23,12 +25,20 @@ export default class AppContainer extends Component {
 
 	render() {
 		const { processedInputs } = this.state
-		const { roomDimensions } = processedInputs
+		const {
+			roomDimensions, hooverPosition,
+			dirtyPatches, instructions
+		} = processedInputs
 
 		return (
 			<div>
 				<input type="file" ref={input => (this.fileInput = input)} />
-				<Grid roomDimensions={roomDimensions} />
+				<Grid
+					roomDimensions={roomDimensions}
+					hooverPosition={hooverPosition}
+					dirtyPatches={dirtyPatches}
+					instructions={instructions}
+				/>
 			</div>
 		)
 	}
