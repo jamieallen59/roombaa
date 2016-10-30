@@ -112,12 +112,15 @@ describe('components/Grid:', () => {
 		roomDimensions = [ 3, 3 ]
 		const hooverPosition = [ 1, 2 ]
 		const instructions = [ 'N', 'E', 'E', 'N', 'S' ]
+		const dirtyPatches = [ [ 1, 3 ], [ 0, 4 ] ]
+
 		component = mount(<Grid />)
 
 		component.instance().componentWillReceiveProps({
 			instructions,
 			hooverPosition,
-			roomDimensions
+			roomDimensions,
+			dirtyPatches
 		})
 
 		const finalXPositionElement = component.find('.finalXPosition')
@@ -125,5 +128,23 @@ describe('components/Grid:', () => {
 
 		expect(finalXPositionElement.text()).to.equal('X: 0')
 		expect(finalYPositionElement.text()).to.equal('Y: 2')
+	})
+
+	it('Should display the number of patches of dirt that were cleand', () => {
+		const hooverPosition = [ 1, 2 ]
+		const instructions = [ 'N', 'E', 'E', 'N', 'S' ]
+		const dirtyPatches = [ [ 1, 3 ], [ 0, 4 ] ]
+		component = mount(<Grid />)
+
+		component.instance().componentWillReceiveProps({
+			instructions,
+			hooverPosition,
+			roomDimensions,
+			dirtyPatches
+		})
+
+		const cleanedPatchesElement = component.find('.cleanedPatches')
+
+		expect(cleanedPatchesElement.text()).to.equal('Cleaned patches: 2')
 	})
 })

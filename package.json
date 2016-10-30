@@ -12,9 +12,10 @@
   "dependencies": {
     "chai": "^3.5.0",
     "enzyme": "^2.5.1",
+    "html-webpack-plugin": "^2.24.0",
+    "lodash": "^4.16.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-	"html-webpack-plugin": "^2.24.0",
     "testdom": "^2.0.0"
   },
   "devDependencies": {

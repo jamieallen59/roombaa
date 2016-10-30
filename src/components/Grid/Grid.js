@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import isEqual from 'lodash/isEqual'
 import Cell from '../Cell/Cell'
-import Hoover from '../Hoover/Hoover'
+// import Hoover from '../Hoover/Hoover'
 
 export const className = 'grid'
 
@@ -24,7 +25,8 @@ export default class Grid extends Component {
 			hooverPosition,
 			dirtyPatches,
 			instructions,
-			hooverPath: []
+			hooverPath: [],
+			cleanedPatches: 0
 		}
 	}
 
@@ -103,12 +105,28 @@ export default class Grid extends Component {
 
 		this.setState({
 			hooverPath
+		}, this.calculateCleanPatches)
+	}
+
+	calculateCleanPatches = () => {
+		const { hooverPath, dirtyPatches } = this.state
+		let tally = 0
+
+		hooverPath.forEach(cell => {
+			dirtyPatches.forEach(dirtyPatch => {
+				if (isEqual(cell, dirtyPatch)) {
+					tally = tally += 1
+				}
+			})
+		})
+
+		this.setState({
+			cleanedPatches: tally
 		})
 	}
 
 	render() {
-		console.log('STATE in RENDER', this.state)
-		const { roomDimensions, hooverPosition, hooverPath } = this.state
+		const { roomDimensions, hooverPath } = this.state
 		const xLength = roomDimensions[0]
 		const yLength = roomDimensions[1]
 		const rowContainer = []
@@ -146,6 +164,11 @@ export default class Grid extends Component {
 							<div className="finalYPosition">Y: { finalHooverPosition[1] }</div>
 						</div>
 						: null
+				}
+				{
+					<div className="cleanedPatches">
+						Cleaned patches: { this.state.cleanedPatches }
+					</div>
 				}
 			</div>
 		)
