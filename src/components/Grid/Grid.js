@@ -26,9 +26,17 @@ export default class Grid extends Component {
 	}
 
 	componentWillReceiveProps(newProps) {
-		const { roomDimensions } = newProps
+		const {
+			roomDimensions, hooverPosition,
+			dirtyPatches, instructions
+		} = newProps
 
-		this.setState({ roomDimensions })
+		this.setState({
+			roomDimensions,
+			hooverPosition,
+			dirtyPatches,
+			instructions
+		})
 	}
 
 	render() {

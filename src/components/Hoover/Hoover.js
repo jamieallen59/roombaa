@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 export const className = 'hoover'
 
-export default class Hoover extends Component {
-	render() {
-		return (
-			<div className={className}>
-				Hoover!
-			</div>
-		)
-	}
-}
+const Hoover = () => (
+	<div className={className}>
+		Hoover!
+	</div>
+)
+
+export default Hoover
