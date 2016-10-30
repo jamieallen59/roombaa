@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
+export const className = 'hoover'
+
 export default class Hoover extends Component {
 	render() {
 		return (
-			<div>Hoover!</div>
+			<div className={className}>Hoover!</div>
 		)
 	}
 }
