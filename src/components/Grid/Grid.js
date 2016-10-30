@@ -39,6 +39,55 @@ export default class Grid extends Component {
 		})
 	}
 
+	getHooverPath = () => {
+		const { hooverPosition, instructions } = this.state
+		const hooverPath = [ hooverPosition ]
+
+		instructions.forEach(instruction => {
+			const lastInstructionPosition = hooverPath.length - 1
+			const lastInstruction = hooverPath[lastInstructionPosition]
+			const xCoord = lastInstruction[0]
+			const yCoord = lastInstruction[1]
+
+			switch (instruction) {
+			case 'N': {
+				const currentSquare = [
+					xCoord, yCoord + 1
+				]
+				hooverPath.push(currentSquare)
+				break
+			}
+			case 'S': {
+				const currentSquare = [
+					xCoord, yCoord - 1
+				]
+				hooverPath.push(currentSquare)
+				break
+			}
+			case 'E': {
+				const currentSquare = [
+					xCoord - 1, yCoord
+				]
+				hooverPath.push(currentSquare)
+				break
+			}
+			case 'W': {
+				const currentSquare = [
+					xCoord + 1, yCoord
+				]
+				hooverPath.push(currentSquare)
+				break
+			}
+			default: {
+				return
+			} }
+		})
+
+		this.setState({
+			hooverPath
+		})
+	}
+
 	render() {
 		const { roomDimensions, hooverPosition } = this.state
 		const xLength = roomDimensions[0]

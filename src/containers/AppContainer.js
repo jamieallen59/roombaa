@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-indent-props */
-
 import React, { Component } from 'react'
 
 import fileUploader from '../utils/fileUploader/fileUploader'

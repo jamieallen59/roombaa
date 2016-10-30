@@ -37,7 +37,7 @@ describe('components/Grid:', () => {
 		expect(hooverComponent.length).to.equal(1)
 	})
 
-	it('The Grid should know the Hoovers initial position', () => {
+	it('Should know the Hoovers initial position', () => {
 		const hooverPosition = [ 1, 2 ]
 		component = mount(
 			<Grid hooverPosition={hooverPosition} />
@@ -47,7 +47,7 @@ describe('components/Grid:', () => {
 		expect(componentState.hooverPosition).to.equal(hooverPosition)
 	})
 
-	it('The Grid should know where the dirty patches are', () => {
+	it('Should know where the dirty patches are', () => {
 		const dirtyPatches = [[ 1, 2 ], [ 3, 5 ]]
 		component = mount(
 			<Grid dirtyPatches={dirtyPatches} />
@@ -57,7 +57,7 @@ describe('components/Grid:', () => {
 		expect(componentState.dirtyPatches).to.equal(dirtyPatches)
 	})
 
-	it('The Grid should know what the instructions are for the hoover', () => {
+	it('Should know what the instructions are for the hoover', () => {
 		const instructions = ['N', 'E', 'W', 'N', 'S', 'E']
 		component = mount(
 			<Grid instructions={instructions} />
@@ -65,5 +65,25 @@ describe('components/Grid:', () => {
 		const componentState = component.state()
 
 		expect(componentState.instructions).to.equal(instructions)
+	})
+
+	it('Should interpret the instructions into the path the hoover will take', () => {
+		const hooverPosition = [ 1, 2 ]
+		const instructions = [ 'N', 'E', 'N', 'W', 'S' ]
+		component = mount(
+			<Grid
+				instructions={instructions}
+				hooverPosition={hooverPosition}
+				roomDimensions={roomDimensions}
+			/>
+		)
+		component.instance().getHooverPath()
+		const expectedResults = [
+			[ 1, 2 ], [ 1, 3 ], [ 0, 3 ], [ 0, 4 ],
+			[ 1, 4 ], [ 1, 3 ]
+		]
+		const componentState = component.state()
+
+		expect(componentState.hooverPath).to.deep.equal(expectedResults)
 	})
 })
