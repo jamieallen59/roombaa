@@ -4,15 +4,17 @@ import Hoover from '../Hoover/Hoover'
 
 export default class Grid extends Component {
 	static propTypes = {
-		roomDimensions: PropTypes.arrayOf(PropTypes.number)
+		roomDimensions: PropTypes.arrayOf(PropTypes.number),
+		hooverPosition: PropTypes.arrayOf(PropTypes.number)
 	}
 
 	constructor(props) {
 		super(props)
-		const { roomDimensions = [] } = props
+		const { roomDimensions = [], hooverPosition = [] } = props
 
 		this.state = {
-			roomDimensions
+			roomDimensions,
+			hooverPosition
 		}
 	}
 

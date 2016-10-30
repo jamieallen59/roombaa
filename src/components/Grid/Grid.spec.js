@@ -32,4 +32,14 @@ describe('components/Grid:', () => {
 
 		expect(hooverComponent.length).to.equal(1)
 	})
+
+	it('The Grid should know the hoovers initial position', () => {
+		const hooverPosition = [ 1, 2 ]
+		component = mount(
+			<Grid roomDimensions={roomDimensions} hooverPosition={hooverPosition} />
+		)
+		const componentState = component.state()
+
+		expect(componentState.hooverPosition).to.equal(hooverPosition)
+	})
 })
