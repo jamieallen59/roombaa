@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Cell from '../Cell/Cell'
+import Hoover from '../Hoover/Hoover'
 
 export default class Grid extends Component {
 	static propTypes = {
@@ -8,7 +9,6 @@ export default class Grid extends Component {
 
 	constructor(props) {
 		super(props)
-		// Defaults to a grid of 5 x 5 cells
 		const { roomDimensions = [] } = props
 
 		this.state = {
@@ -25,14 +25,16 @@ export default class Grid extends Component {
 	render() {
 		const { roomDimensions } = this.state
 		const xLength = roomDimensions[0]
-		const yLength = roomDimensions[0]
+		const yLength = roomDimensions[1]
 		const rowContainer = []
 		const grid = []
 
+		// Build row full of Cells
 		for (let i = 0; i < xLength; i += 1) {
 			rowContainer.push(<Cell />)
 		}
 
+		// Build grid full of rows
 		for (let i = 0; i < yLength; i += 1) {
 			grid.push(rowContainer)
 		}
@@ -41,11 +43,10 @@ export default class Grid extends Component {
 			<div>
 				{
 					grid.map(row => (
-						row.map(element => (
-							element
-						))
+						row.map(element => element)
 					))
 				}
+				<Hoover />
 			</div>
 		)
 	}
