@@ -3,7 +3,8 @@
 import { expect } from 'chai'
 import inputProcessor, {
 	isMultipleOfTwo,
-	dirtPatchInputProcessor
+	dirtPatchInputProcessor,
+	parsedArrayToInts
 } from './inputProcessor'
 
 describe('utils/inputProcessor:', () => {
@@ -23,9 +24,8 @@ describe('utils/inputProcessor:', () => {
 					[ 2, 3 ]
 				],
 				instructions: [
-					'N', 'N', 'E', 'S',
-					'E', 'E', 'S', 'W',
-					'N', 'W', 'W'
+					'N', 'N', 'E', 'S', 'E', 'E',
+					'S', 'W', 'N', 'W', 'W'
 				]
 			}
 
@@ -60,6 +60,16 @@ describe('utils/inputProcessor:', () => {
 			expect(() => dirtPatchInputProcessor(inputs)).to.throw(
 				'Each dirt patch must have an x and a y coordinate'
 			)
+		})
+	})
+
+	context('When parsedArrayToInts is called with an array of strings', () => {
+		it('Should return an array of integers', () => {
+			const input = [ '1', '2', '3' ]
+			const result = parsedArrayToInts(input)
+			const expectedResult = [ 1, 2, 3 ]
+
+			expect(result).to.deep.equal(expectedResult)
 		})
 	})
 })

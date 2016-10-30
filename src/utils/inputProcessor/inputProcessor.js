@@ -1,8 +1,8 @@
 
-
 export const isMultipleOfTwo = num => num % 2 === 0
 
 export const dirtPatchInputProcessor = inputs => {
+	// Input must come in as an even number as the coords are in pairs
 	const isInputValid = isMultipleOfTwo(inputs.length)
 
 	if (!isInputValid) {
@@ -13,13 +13,15 @@ export const dirtPatchInputProcessor = inputs => {
 
 	inputs.map((input, index) => {
 		const shouldCreateNewArray = isMultipleOfTwo(index)
-
+		// Depending on first or second pair or the coord pairs
+		// Either:
+		// 1) Create a new array with the first coord
 		if (shouldCreateNewArray) {
 			const newArray = [ input ]
 
 			return formattedInputs.push(newArray)
 		}
-		// minus one because of zero-index
+		// 2) Add the second coord to the latest inner array to form a pair
 		const targetIndex = formattedInputs.length - 1
 
 		return formattedInputs[targetIndex].push(input)
@@ -28,7 +30,7 @@ export const dirtPatchInputProcessor = inputs => {
 	return formattedInputs
 }
 
-const parsedArrayToInts = array => (
+export const parsedArrayToInts = array => (
 	array.map(element => parseInt(element, 10))
 )
 
