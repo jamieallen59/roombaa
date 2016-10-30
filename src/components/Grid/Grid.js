@@ -2,12 +2,14 @@ import React, { Component, PropTypes } from 'react'
 import Cell from '../Cell/Cell'
 import Hoover from '../Hoover/Hoover'
 
+export const className = 'grid'
+
 export default class Grid extends Component {
 	static propTypes = {
 		roomDimensions: PropTypes.arrayOf(PropTypes.number),
 		hooverPosition: PropTypes.arrayOf(PropTypes.number),
 		dirtyPatches: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
-		instructions: PropTypes.arrayOf(PropTypes.number)
+		instructions: PropTypes.arrayOf(PropTypes.string)
 	}
 
 	constructor(props) {
@@ -21,7 +23,8 @@ export default class Grid extends Component {
 			roomDimensions,
 			hooverPosition,
 			dirtyPatches,
-			instructions
+			instructions,
+			hooverPath: []
 		}
 	}
 
@@ -36,7 +39,7 @@ export default class Grid extends Component {
 			hooverPosition,
 			dirtyPatches,
 			instructions
-		})
+		}, this.getHooverPath)
 	}
 
 	getHooverPath = () => {
@@ -104,7 +107,8 @@ export default class Grid extends Component {
 	}
 
 	render() {
-		const { roomDimensions, hooverPosition } = this.state
+		console.log('STATE in RENDER', this.state)
+		const { roomDimensions, hooverPosition, hooverPath } = this.state
 		const xLength = roomDimensions[0]
 		const yLength = roomDimensions[1]
 		const rowContainer = []
@@ -120,17 +124,28 @@ export default class Grid extends Component {
 			grid.push(rowContainer)
 		}
 
-		const hasHooverPosition = hooverPosition.length
+		// const hasHooverPosition = hooverPosition.length
+		const hooverPathFinalIndex = hooverPath.length - 1
+		const finalHooverPosition = hooverPath[hooverPathFinalIndex] || []
 
 		return (
 			<div>
-				{
+				{/* {
 					grid.map(row => (
 						row.map(element => element)
 					))
 				}
 				{
-					hasHooverPosition && <Hoover />
+					hasHooverPosition ? <Hoover /> : null
+				} */}
+				{
+					finalHooverPosition.length ?
+						<div className="finalPositions">
+							Hoover final position.
+							<div className="finalXPosition">X: { finalHooverPosition[0] }</div>
+							<div className="finalYPosition">Y: { finalHooverPosition[1] }</div>
+						</div>
+						: null
 				}
 			</div>
 		)

@@ -20,14 +20,14 @@ describe('components/Grid:', () => {
 		component = mount(<Grid roomDimensions={roomDimensions} />)
 	})
 
-	it('Should instantiate with a grid of cells', () => {
+	it.skip('Should instantiate with a grid of cells', () => {
 		const cellComponents = component.find(Cell)
 		const expectedNumber = roomDimensions[0] * roomDimensions[1]
 
 		expect(cellComponents.length).to.equal(expectedNumber)
 	})
 
-	it('Should instantiate with a Hoover, if a position is given', () => {
+	it.skip('Should instantiate with a Hoover, if a position is given', () => {
 		const hooverPosition = [ 1, 2 ]
 		component = mount(
 			<Grid hooverPosition={hooverPosition} />
@@ -106,5 +106,24 @@ describe('components/Grid:', () => {
 		const componentState = component.state()
 
 		expect(componentState.hooverPath).to.deep.equal(expectedResults)
+	})
+
+	it('Should display the final position of the Hoover', () => {
+		roomDimensions = [ 3, 3 ]
+		const hooverPosition = [ 1, 2 ]
+		const instructions = [ 'N', 'E', 'E', 'N', 'S' ]
+		component = mount(<Grid />)
+
+		component.instance().componentWillReceiveProps({
+			instructions,
+			hooverPosition,
+			roomDimensions
+		})
+
+		const finalXPositionElement = component.find('.finalXPosition')
+		const finalYPositionElement = component.find('.finalYPosition')
+
+		expect(finalXPositionElement.text()).to.equal('X: 0')
+		expect(finalYPositionElement.text()).to.equal('Y: 2')
 	})
 })
