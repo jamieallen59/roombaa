@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import isEqual from 'lodash/isEqual'
 
-export const className = 'grid'
-
 export default class Grid extends Component {
 	static propTypes = {
 		roomDimensions: PropTypes.arrayOf(PropTypes.number),

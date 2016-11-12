@@ -5,9 +5,10 @@
   "author": "Jamie Allen",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start:dev": "webpack-dev-server",
     "test": "mocha --compilers js:babel-core/register \"src/**/*.spec.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+	"start:prod": "webpack -p"
   },
   "dependencies": {
     "chai": "^3.5.0",

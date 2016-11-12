@@ -11,7 +11,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 export default {
 	entry: './src/index.js',
 	output: {
-		path: './dist'
+		path: './dist',
+		filename: 'index.js'
 	},
 	devtool: 'inline-source-map',
 	devServer: {
