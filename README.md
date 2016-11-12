@@ -1,7 +1,7 @@
 [Roombaa]
 ===========
 
-Here's my answer to the Roomba question. If you don't know what that is, don't worry, and move along.
+Here's my answer to the Roomba question. If you don't know what that is, don't worry, move along, nothing to see here.
 
 To download the code, call these commands in this order in your CLI:
 ```
