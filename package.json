@@ -12,6 +12,9 @@
 	"postinstall": "npm run build:prod",
     "start": "node server.js"
   },
+  "engines": {
+	"node": "4.4.7"
+  },
   "dependencies": {
     "chai": "^3.5.0",
     "ejs": "^2.5.2",
@@ -20,6 +23,7 @@
     "html-webpack-plugin": "^2.24.0",
     "lodash": "^4.16.4",
     "react": "^15.3.2",
+	"webpack": "^1.13.2",
     "react-dom": "^15.3.2",
     "testdom": "^2.0.0"
   },
@@ -38,7 +42,6 @@
     "eslint-plugin-react": "^6.4.1",
     "mocha": "^3.1.2",
     "react-addons-test-utils": "^15.3.2",
-    "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   }
 }
