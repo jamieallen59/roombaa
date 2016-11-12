@@ -10,6 +10,8 @@ export default class AppContainer extends Component {
 		processedInputs: {}
 	}
 
+	// Takes the file uploaded by the user as input and processeses it
+	// ready for use by the grid
 	componentDidMount = () => {
 		this.fileInput.addEventListener('change', e => {
 			fileUploader(e)

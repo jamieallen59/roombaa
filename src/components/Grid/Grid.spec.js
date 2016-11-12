@@ -20,23 +20,6 @@ describe('components/Grid:', () => {
 		component = mount(<Grid roomDimensions={roomDimensions} />)
 	})
 
-	it.skip('Should instantiate with a grid of cells', () => {
-		const cellComponents = component.find(Cell)
-		const expectedNumber = roomDimensions[0] * roomDimensions[1]
-
-		expect(cellComponents.length).to.equal(expectedNumber)
-	})
-
-	it.skip('Should instantiate with a Hoover, if a position is given', () => {
-		const hooverPosition = [ 1, 2 ]
-		component = mount(
-			<Grid hooverPosition={hooverPosition} />
-		)
-		const hooverComponent = component.find(Hoover)
-
-		expect(hooverComponent.length).to.equal(1)
-	})
-
 	it('Should know the Hoovers initial position', () => {
 		const hooverPosition = [ 1, 2 ]
 		component = mount(

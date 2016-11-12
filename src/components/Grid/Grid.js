@@ -28,6 +28,9 @@ export default class Grid extends Component {
 		}
 	}
 
+	// Takes the latest input from the users file and sets the properties
+	// to the state of the component. Takes getHooverPath as a callback
+	// to initiate the calculation on those properties once received.
 	componentWillReceiveProps(newProps) {
 		const {
 			roomDimensions, hooverPosition,
@@ -42,6 +45,7 @@ export default class Grid extends Component {
 		}, this.getHooverPath)
 	}
 
+	// turns the hoovers string into coords to move to on the grid
 	getHooverPath = () => {
 		const { hooverPosition, instructions, roomDimensions } = this.state
 		const hooverPath = [ hooverPosition ]
@@ -134,13 +138,12 @@ export default class Grid extends Component {
 		return (
 			<div>
 				{
-					finalHooverPosition.length ?
+					finalHooverPosition.length &&
 						<div className="finalPositions">
 							Hoover final position.
 							<div className="finalXPosition">X: { finalHooverPosition[0] }</div>
 							<div className="finalYPosition">Y: { finalHooverPosition[1] }</div>
 						</div>
-						: null
 				}
 				{
 					<div className="cleanedPatches">
