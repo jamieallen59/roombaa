@@ -8,11 +8,14 @@
     "start:dev": "webpack-dev-server",
     "test": "mocha --compilers js:babel-core/register \"src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch",
-	"start:prod": "webpack -p"
+	"build:prod": "webpack -p",
+    "start": "node server.js"
   },
   "dependencies": {
     "chai": "^3.5.0",
+    "ejs": "^2.5.2",
     "enzyme": "^2.5.1",
+    "express": "^4.14.0",
     "html-webpack-plugin": "^2.24.0",
     "lodash": "^4.16.4",
     "react": "^15.3.2",
