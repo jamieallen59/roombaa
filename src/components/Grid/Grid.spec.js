@@ -5,8 +5,6 @@ import { expect } from 'chai'
 import { mount } from 'enzyme'
 import testdom from 'testdom'
 import Grid from './Grid'
-import Cell from '../Cell/Cell'
-import Hoover from '../Hoover/Hoover'
 
 testdom('<html><body></body></html>')
 

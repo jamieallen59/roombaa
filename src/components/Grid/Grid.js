@@ -59,43 +59,42 @@ export default class Grid extends Component {
 			const yLimit = roomDimensions[1]
 			let currentSquare
 
+			// limit condition means the hoover has reached the edge of the
+			// grid, so is the constraint that keeps it in it's current place
+			const getCurrentSquare = (limitCondition, nextPosition) => (
+				limitCondition ? lastInstruction : nextPosition
+			)
+
 			switch (instruction) {
 			case 'N': {
-				if (yCoord === yLimit) {
-					currentSquare = lastInstruction
-				} else {
-					currentSquare = [ xCoord, yCoord + 1 ]
-				}
+				const limitCondition = yCoord === yLimit
+				const nextPosition = [ xCoord, yCoord + 1 ]
+				currentSquare = getCurrentSquare(limitCondition, nextPosition)
 
 				hooverPath.push(currentSquare)
+
 				break
 			}
 			case 'S': {
-				if (yCoord === 0) {
-					currentSquare = lastInstruction
-				} else {
-					currentSquare = [ xCoord, yCoord - 1 ]
-				}
+				const limitCondition = yCoord === 0
+				const nextPosition = [ xCoord, yCoord - 1 ]
+				currentSquare = getCurrentSquare(limitCondition, nextPosition)
 
 				hooverPath.push(currentSquare)
 				break
 			}
 			case 'E': {
-				if (xCoord === 0) {
-					currentSquare = lastInstruction
-				} else {
-					currentSquare = [ xCoord - 1, yCoord ]
-				}
+				const limitCondition = xCoord === 0
+				const nextPosition = [ xCoord - 1, yCoord ]
+				currentSquare = getCurrentSquare(limitCondition, nextPosition)
 
 				hooverPath.push(currentSquare)
 				break
 			}
 			case 'W': {
-				if (xCoord === xLimit) {
-					currentSquare = lastInstruction
-				} else {
-					currentSquare = [ xCoord + 1, yCoord ]
-				}
+				const limitCondition = xCoord === xLimit
+				const nextPosition = [ xCoord + 1, yCoord ]
+				currentSquare = getCurrentSquare(limitCondition, nextPosition)
 
 				hooverPath.push(currentSquare)
 				break
