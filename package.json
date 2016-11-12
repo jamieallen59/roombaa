@@ -9,6 +9,7 @@
     "test": "mocha --compilers js:babel-core/register \"src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch",
 	"build:prod": "webpack -p",
+	"postinstall": "npm run build:prod",
     "start": "node server.js"
   },
   "dependencies": {
