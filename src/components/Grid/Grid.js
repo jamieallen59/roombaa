@@ -108,6 +108,9 @@ export default class Grid extends Component {
 		}, this.calculateCleanPatches)
 	}
 
+	// Iterate through the hoovers path of cell coords
+	// and check against each one whether it is one of the dirty
+	// patches or not.
 	calculateCleanPatches = () => {
 		const { hooverPath, dirtyPatches } = this.state
 		let tally = 0
