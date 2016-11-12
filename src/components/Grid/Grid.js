@@ -50,6 +50,8 @@ export default class Grid extends Component {
 		const { hooverPosition, instructions, roomDimensions } = this.state
 		const hooverPath = [ hooverPosition ]
 
+		// Loops through instructions and processes them into
+		// an array of numbers
 		instructions.forEach(instruction => {
 			const lastInstructionPosition = hooverPath.length - 1
 			const lastInstruction = hooverPath[lastInstructionPosition]
