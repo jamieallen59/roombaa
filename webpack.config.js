@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 	title: 'Roomba Challenge',
@@ -29,8 +30,11 @@ module.exports = {
 		loaders: [ {
 			test: /\.js$/,
 			exclude: /node_modules/,
-			loader: 'babel'
+			loader: 'babel-loader'
 		} ]
+	},
+	resolveLoader: {
+		root: path.join(__dirname, 'node_modules')
 	},
 	plugins: [
 		HtmlWebpackPluginConfig

@@ -8,12 +8,12 @@
     "start:dev": "webpack-dev-server",
     "test": "mocha --compilers js:babel-core/register \"src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch",
-	"build:prod": "webpack -p",
-	"postinstall": "npm run build:prod",
+    "build:prod": "webpack -p",
+    "postinstall": "npm run build:prod",
     "start": "node server.js"
   },
   "engines": {
-	"node": "4.4.7"
+    "node": "4.4.7"
   },
   "dependencies": {
     "chai": "^3.5.0",
@@ -22,10 +22,11 @@
     "express": "^4.14.0",
     "html-webpack-plugin": "^2.24.0",
     "lodash": "^4.16.4",
+    "path": "^0.12.7",
     "react": "^15.3.2",
-	"webpack": "^1.13.2",
     "react-dom": "^15.3.2",
-    "testdom": "^2.0.0"
+    "testdom": "^2.0.0",
+    "webpack": "^1.13.2"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
