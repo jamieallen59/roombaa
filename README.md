@@ -28,7 +28,7 @@ npm start
 Then head to localhost:3000 to see it in all its divine glory.
 
 ### Why?
-The concept is that you are the master of all hoovers (A Roomba is a hoover - this one is called roombaa), and you can define exactly where they begin, the parameters in which they charge around, and also lay down some dirt for them to clean up. This is done in a very precise format, which I'll come on to. Once you know that, you must feed your machine (the programme) your commands, and your magic machine will output not only the final position of your hoover, but also the bits of dirt is has picked up on the way!
+The concept is that you are the master of all hoovers (A Roomba is a hoover - this one is called roombaa), and you can define exactly where they begin, the parameters in which they charge around, and also lay down some dirt for them to clean up. This is done in a very precise format, which I'll come on to. Once you know what you want and have the commands written down (in a .txt file...), you must feed your machine (the programme) your commands, and your magic machine will output not only the final position of your hoover, but also the bits of dirt is has picked up on the way!
 
 ### How?
 Ok, so here's the format. Upload a text file with the following:
@@ -50,6 +50,9 @@ NNESEESWNWW
 
 Do it correctly and you will see the results displayed as if by magic on your screen.
 
+Got your text file ready? Head over [here] and try it.
+
 Thanks!
 
+[here]: https://roombaa.herokuapp.com/
 [Roombaa]: https://roombaa.herokuapp.com/
